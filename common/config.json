@@ -1,0 +1,32 @@
+{
+    "target_address": "ws://192.168.18.53:9090",
+    "media_address": "ws://192.168.18.53:8881",
+    "proxy_host":"localhost",
+    "proxy_port":9090,
+    "speed_1": [0.35,1.7],
+    "speed_2": [0.5,1.9],
+    "speed_3": [0.8,1.9],
+    "speed_4": [0.35,1.3],
+    "tpf_target": 120,
+    "level_max": 50,
+    "values": {
+        "topics": [
+            "/proxy/image",
+            "/map",
+            "/proxy/msgout",
+            "/proxy/ai"
+        ],
+        "types": [
+            "sensor_msgs/msg/Image",
+            "nav_msgs/msg/OccupancyGrid",
+            "std_msgs/msg/String",
+            "std_msgs/msg/String"
+        ],
+        "typedefs_full_text": [
+            "# This message contains an uncompressed image\n# (0, 0) is at top-left corner of image\n\nstd_msgs/Header header # Header timestamp should be acquisition time of image\n                             # Header frame_id should be optical frame of camera\n                             # origin of frame should be optical center of cameara\n                             # +x should point to the right in the image\n                             # +y should point down in the image\n                             # +z should point into to plane of the image\n                             # If the frame_id here and the frame_id of the CameraInfo\n                             # message associated with the image conflict\n                             # the behavior is undefined\n\nuint32 height                # image height, that is, number of rows\nuint32 width                 # image width, that is, number of columns\n\n# The legal values for encoding are in file src/image_encodings.cpp\n# If you want to standardize a new string format, join\n# ros-users@lists.ros.org and send an email proposing a new encoding.\n\nstring encoding       # Encoding of pixels -- channel meaning, ordering, size\n                      # taken from the list of strings in include/sensor_msgs/image_encodings.hpp\n\nuint8 is_bigendian    # is this data bigendian?\nuint32 step           # Full row length in bytes\nuint8[] data          # actual matrix data, size is (step * rows)\n\n================================================================================\nMSG: std_msgs/Header\n# Standard metadata for higher-level stamped data types.\n# This is generally used to communicate timestamped data\n# in a particular coordinate frame.\n\n# Two-integer timestamp that is expressed as seconds and nanoseconds.\nbuiltin_interfaces/Time stamp\n\n# Transform frame with which this data is associated.\nstring frame_id\n\n================================================================================\nMSG: builtin_interfaces/Time\n# Time indicates a specific point in time, relative to a clock's 0 point.\n\n# The seconds component, valid over all int32 values.\nint32 sec\n\n# The nanoseconds component, valid in the range [0, 10e9).\nuint32 nanosec\n",
+            "# This represents a 2-D grid map\nstd_msgs/Header header\n\n# MetaData for the map\nMapMetaData info\n\n# The map data, in row-major order, starting with (0,0). \n# Cell (1, 0) will be listed second, representing the next cell in the x direction. \n# Cell (0, 1) will be at the index equal to info.width, followed by (1, 1).\n# The values inside are application dependent, but frequently, \n# 0 represents unoccupied, 1 represents definitely occupied, and\n# -1 represents unknown. \nint8[] data\n\n================================================================================\nMSG: nav_msgs/MapMetaData\n# This hold basic information about the characteristics of the OccupancyGrid\n\n# The time at which the map was loaded\nbuiltin_interfaces/Time map_load_time\n\n# The map resolution [m/cell]\nfloat32 resolution\n\n# Map width [cells]\nuint32 width\n\n# Map height [cells]\nuint32 height\n\n# The origin of the map [m, m, rad].  This is the real-world pose of the\n# bottom left corner of cell (0,0) in the map.\ngeometry_msgs/Pose origin\n\n================================================================================\nMSG: geometry_msgs/Pose\n# A representation of pose in free space, composed of position and orientation.\n\nPoint position\nQuaternion orientation\n\n================================================================================\nMSG: geometry_msgs/Quaternion\n# This represents an orientation in free space in quaternion form.\n\nfloat64 x 0\nfloat64 y 0\nfloat64 z 0\nfloat64 w 1\n\n================================================================================\nMSG: geometry_msgs/Point\n# This contains the position of a point in free space\nfloat64 x\nfloat64 y\nfloat64 z\n\n================================================================================\nMSG: builtin_interfaces/Time\n# Time indicates a specific point in time, relative to a clock's 0 point.\n\n# The seconds component, valid over all int32 values.\nint32 sec\n\n# The nanoseconds component, valid in the range [0, 10e9).\nuint32 nanosec\n\n================================================================================\nMSG: std_msgs/Header\n# Standard metadata for higher-level stamped data types.\n# This is generally used to communicate timestamped data\n# in a particular coordinate frame.\n\n# Two-integer timestamp that is expressed as seconds and nanoseconds.\nbuiltin_interfaces/Time stamp\n\n# Transform frame with which this data is associated.\nstring frame_id\n",
+            "# This was originally provided as an example message.\n# It is deprecated as of Foxy\n# It is recommended to create your own semantically meaningful message.\n# However if you would like to continue using this please use the equivalent in example_msgs.\n\nstring data\n",
+            "string data"
+        ]
+    }
+}
